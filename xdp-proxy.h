@@ -17,6 +17,27 @@ struct endpoints {
 	unsigned char vip_mac[ETH_ALEN];
 } __attribute__((packed));
 
+struct session_key {
+    __be32 lip;     //lvs local ip
+    __be32 lport;   //lvs local port
+    __be32 fip;     //forward(self) ip
+    __be32 fport;   //forward(self) port
+} __attribute__((packed));
+
+struct session {
+    __be32 cip;     //client ip
+    __be32 cport;   //client port
+    __be32 rip;     //real server ip
+    __be32 rport;   //real server port
+    unsigned char lmac[ETH_ALEN];//lvs local mac
+    unsigned char rmac[ETH_ALEN];//real server mac
+} __attribute__((packed));
+
+struct router {
+	__be32 rip;
+	unsigned char rmac[ETH_ALEN];
+} __attribute__((packed));
+
 #ifndef memcpy
 #define memcpy(dest, src, n) __builtin_memcpy((dest), (src), (n))
 #endif
