@@ -16,7 +16,7 @@ struct
 	__uint(type, BPF_MAP_TYPE_HASH);
 	__type(key, __be32);
 	__type(value, struct endpoints);
-	__uint(max_entries, 10240000);
+	__uint(max_entries, 10000000);
 } services SEC(".maps");
 
 // struct
