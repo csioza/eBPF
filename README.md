@@ -27,8 +27,6 @@ or
 
 `clang -Wall -O2 -g xdp-proxy.o -static -lbpf -lelf -lz -o xdp-proxy`
 
-# 四、编译
-`clang -g -O2 -target bpf -c xdp-proxy.bpf.c -o xdp-proxy.bpf.o`
 # 五、XDP
 ### 1.挂载
 - shell将bpf内核态程序加载到网卡eth0
