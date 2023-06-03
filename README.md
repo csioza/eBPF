@@ -1,5 +1,5 @@
 # 一、环境
-安装fedora
+安装 fedora
 ```
 docker pull fedora:31
 ```
@@ -14,7 +14,7 @@ docker run --privileged -itv ~/eBPF:/home/eBPF xxx
 ```
 
 # 三、编译
-1. 编译bpf内核态程序
+1. 编译 bpf 内核态程序
 ```
 clang -g -O2 -target bpf -D__TARGET_ARCH_x86 -I/usr/include/x86_64-linux-gnu -I. -c xdp-proxy.bpf.c -o xdp-proxy.bpf.o
 ```
@@ -30,12 +30,12 @@ clang -g -O2 -target bpf -c xdp-proxy.bpf.c -o xdp-proxy.bpf.o
 bpftool gen skeleton xdp-proxy.bpf.o > xdp-proxy.skel.h
 ```
 
-3. 编译bpf用户态程序
+3. 编译 bpf 用户态程序
 ```
 clang -g -O2 -Wall -I. -c xdp-proxy.c -o xdp-proxy.o
 ```
 
-4. 生成静态bpf可执行用户态程序
+4. 生成静态 bpf 可执行用户态程序
 ```
 clang -Wall -O2 -g xdp-proxy.o -static -lbpf -lelf -lz -o xdp-proxy
 ```
